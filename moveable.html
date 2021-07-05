@@ -1,0 +1,114 @@
+<html>
+<head>
+<title>Positioning Elements with JavaScript</title>
+<script>
+function changeHead() {
+  			let x = prompt("give a new header name");
+  			document.getElementById('header').innerHTML=x;
+  		}
+      function TEXT() {
+        			let x = prompt("enter your text");
+        			document.getElementById('text').innerHTML=x;
+        		}
+
+  var x=100,y=150;
+  function pos(dx,dy) {
+  if (!document.getElementById) return;
+  x += 30*dx;
+  y += 30*dy;
+  obj = document.getElementById("square");
+  obj.style.top=y + "px";
+  obj.style.left=x + "px";
+  }
+  function hideSquare() {
+  if (!document.getElementById) return;
+  obj = document.getElementById("square");
+  obj.style.display="none";
+  }
+  function showSquare() {
+  if (!document.getElementById) return;
+  obj = document.getElementById("square");
+  obj.style.display="block";
+  }
+  function bigImg(x) {
+    x.style.height = "100px";
+    x.style.width = "100px";
+}
+
+function normalImg(x) {
+    x.style.height = "68px";
+    x.style.width = "85px";
+}
+</script>
+<style text="text/css">
+
+#buttons {
+text-align:center;
+}
+
+#square {
+position:absolute;
+text-align:center;
+top: 150px;
+left: 100px;
+width: 200px;
+height: 100px;
+border: 2px solid black;
+padding: 10px;
+background-color: #e0e0e0;
+}
+
+h1 {
+  color: black;
+  font-family: verdana;
+  font-size: 300%;
+}
+
+.btns {
+background-color: #555555;
+border: none;
+color: white;
+padding: 25px 25px;
+
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+body {
+    background-color: grey;
+}
+</style>
+</head>
+<body>
+  <center><h1> MOVABLE BUTTONS </h1></center>
+<center><h1 id="header"></h1></center>
+
+<form action"" name="form1">
+<div id="buttons">
+<input type="button" onmouseover="bigImg(this)" onmouseout="normalImg(this)"  class="btns" name="left" value="Left"
+onclick="pos(-1,0);" />
+<input type="button" onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="btns" name="right" value="Right"
+onclick="pos(1,0);" />
+<input type="button" onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="btns" name="up" value="Up"
+onclick="pos(0,-1);"/>
+<input type="button" onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="btns" name="down" value="Down"
+onclick="pos(0,1);"/> <br><br>
+<input type="button" onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="btns" name="hide" value="Hide"
+onclick="hideSquare();"/>
+<input type="button" onmouseover="bigImg(this)" onmouseout="normalImg(this)" class="btns" name="show" value="Show"
+onclick="showSquare();" />
+<button class="btns" onmouseover="bigImg(this)" onmouseout="normalImg(this)" onmousedown="changeHead()"> HEADER</button>
+<button class="btns" onmouseover="bigImg(this)" onmouseout="normalImg(this)" onmousedown="TEXT()"> TEXT</button>
+
+</div>
+</form>
+<hr />
+<div id="square">
+
+<p h1 id= "text">CLICK ON THE BOX TO CHANGE THE INSIDE TEXT.</p>
+</div>
+</body>
+</html>
